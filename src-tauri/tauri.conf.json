@@ -1,8 +1,8 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "customr",
+  "productName": "customRA",
   "version": "0.1.0",
-  "identifier": "com.danie.customr",
+  "identifier": "com.danie.customRA",
   "build": {
     "beforeDevCommand": "npm run dev",
     "devUrl": "http://localhost:1420",

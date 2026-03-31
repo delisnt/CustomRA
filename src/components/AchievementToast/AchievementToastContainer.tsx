@@ -1,14 +1,37 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { motion } from "framer-motion";
+import { useAchievement } from "../../hooks/useAchievements";
 
 function AchievementToastContainer({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const { handlePop } = useAchievement();
+  useEffect(() => {
+    handlePop();
+  }, []);
+
+  function handleAnimations(animation: string) {
+    if (animation === "initial" || animation == "exit") {
+      return { x: -400 };
+    } else if (animation === "duration") {
+      return { duration: 0.5 };
+    } else if (animation === "animate") {
+      return { x: 0 };
+    }
+  }
+
   return (
-    <div className="top-10 left-0 bg-black text-white py-2 px-8 flex shadow-md  ">
+    <motion.div
+      initial={handleAnimations("initial")}
+      animate={handleAnimations("animate")}
+      exit={handleAnimations("exit")}
+      transition={handleAnimations("duration")}
+      className="top-10 left-0 bg-black text-white flex shadow-[9px_8px_9px_-7px_rgba(0,_0,_0,_0.8)] h-16 w-96 gap-3"
+    >
       {children}
-    </div>
+    </motion.div>
   );
 }
 
