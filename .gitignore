@@ -22,3 +22,39 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+Per un progetto Rust, il file .gitignore è fondamentale per evitare di caricare nel repository i file compilati (che sono pesanti e specifici per la tua macchina) e le cartelle temporanee.
+
+Ecco un template standard e completo che puoi copiare e incollare:
+
+Snippet di codice
+# --- Compilazione ---
+# Contiene i file binari compilati e gli artefatti. 
+# È la cartella più pesante e non va mai caricata.
+/target/
+
+# --- File di Log ---
+# Log generati durante l'esecuzione o il test
+*.log
+
+# --- Backup e file temporanei ---
+# File generati da editor o crash
+**/*.rs.bk
+*.swp
+*.tmp
+
+# --- IDE e Editor ---
+# Cartelle specifiche per chi usa VS Code o IntelliJ
+.vscode/
+.idea/
+*.iml
+
+# --- Cargo/Lock ---
+# Nota: per gli "executable" (progetti binari), è consigliato caricare Cargo.lock.
+# Se stai creando una LIBRARY, potresti volerlo ignorare, ma di default si tiene.
+# Cargo.lock 
+
+# --- Credenziali e Ambiente ---
+# Se usi file .env per chiavi API (molto comune in Tauri)
+.env
+.env.*

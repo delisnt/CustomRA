@@ -1,17 +1,10 @@
-import React, { useEffect } from "react";
 import { motion } from "framer-motion";
-import { useAchievement } from "../../hooks/useAchievements";
 
 function AchievementToastContainer({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const { handlePop } = useAchievement();
-  useEffect(() => {
-    handlePop();
-  }, []);
-
   function handleAnimations(animation: string) {
     if (animation === "initial" || animation == "exit") {
       return { x: -400 };

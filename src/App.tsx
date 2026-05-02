@@ -1,19 +1,20 @@
-import { useEffect } from "react";
-import ToastQueue from "./components/ToastQueue/ToastQueue";
-import { useAchievement } from "./hooks/useAchievements";
-import { achievements } from "./mocks";
+import Dashboard from "./components/Dashboard/Dashboard";
+import { createBrowserRouter, RouterProvider } from "react-router";
+import Overlay from "./pages/Overlay";
+
+let router = createBrowserRouter([
+  {
+    path: "/",
+    Component: Dashboard,
+  },
+  {
+    path: "/overlay",
+    Component: Overlay,
+  },
+]);
 
 function App() {
-  const { getAchievements } = useAchievement();
-  useEffect(() => {
-    getAchievements(achievements);
-  }, []);
-
-  return (
-    <div>
-      <ToastQueue />
-    </div>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

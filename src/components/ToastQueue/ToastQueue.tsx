@@ -5,7 +5,7 @@ import AchievementToast from "../AchievementToast/AchievementToast";
 function ToastQueue() {
   const queue = useStore((state) => state.queue);
   return (
-    <div className="flex flex-col gap-2 my-24 fixed">
+    <div className="flex flex-col gap-2 my-24 fixed bg-transparent">
       <AnimatePresence>
         {queue.map(({ id, title, description, points }) => (
           <AchievementToast

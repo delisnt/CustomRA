@@ -15,6 +15,14 @@
         "title": "customr",
         "width": 800,
         "height": 600
+      },
+      {
+        "label": "overlay",
+        "url": "/overlay",
+        "transparent": true,
+        "decorations": false,
+        "alwaysOnTop": true,
+        "shadow": false
       }
     ],
     "security": {
